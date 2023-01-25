@@ -1,0 +1,25 @@
+{
+  "name": "coverage-gist-badge",
+  "version": "1.0.0",
+  "description": "writes to my gist to update my coverage badge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MadeleenRoestorff/coverage-gist-badge.git"
+  },
+  "keywords": [
+    "gist"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MadeleenRoestorff/coverage-gist-badge/issues"
+  },
+  "homepage": "https://github.com/MadeleenRoestorff/coverage-gist-badge#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0"
+  }
+}
