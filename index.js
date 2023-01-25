@@ -32,6 +32,10 @@ const request = JSON.stringify({
   files: { [filename]: { content: JSON.stringify(content) } },
 });
 
-axios.post(`api.github.com/gists/${core.getInput('gistID')}/`, request, config);
+axios.post(
+  `https://api.github.com/gists/${core.getInput('gistID')}/`,
+  request,
+  config
+);
 
 console.log(request);
