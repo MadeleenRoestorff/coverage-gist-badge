@@ -25,7 +25,7 @@ const main = async () => {
   });
 
   const octokit = new Octokit({
-    auth: core.getInput('auth'),
+    auth: core.getInput('GITHUB_TOKEN'),
   });
 
   const response = await octokit.gists.update({
