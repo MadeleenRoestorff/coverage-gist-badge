@@ -20,9 +20,9 @@ const main = async () => {
     content.color = color;
   }
 
-  const request = JSON.stringify({
-    files: { [filename]: { content: JSON.stringify(content) } },
-  });
+  //   const request = JSON.stringify({
+  //     files: { [filename]: { content: JSON.stringify(content) } },
+  //   });
 
   const octokit = new Octokit({
     auth: core.getInput('auth'),
@@ -42,11 +42,17 @@ const main = async () => {
   //     request,
   //   });
 
-  const response = await octokit.request('GET /gists/{gist_id}', {
+  const response = await octokit.request('PATCH /gists/{gist_id}', {
     gist_id: core.getInput('gistID'),
+    description: 'An updated gist description',
+    files: {
+      [filename]: {
+        content: JSON.stringify(content),
+      },
+    },
   });
 
-  const { files } = response.data;
+  //   const { files } = response.data;
 
   console.log(response.data);
   console.log('help');
