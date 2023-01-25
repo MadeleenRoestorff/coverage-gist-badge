@@ -32,7 +32,7 @@ const request = JSON.stringify({
   files: { [filename]: { content: JSON.stringify(content) } },
 });
 
-await axios.post(
+axios.post(
   `https://gist.github.com/MadeleenRoestorff/${core.getInput('gistID')}/`,
   request,
   config
