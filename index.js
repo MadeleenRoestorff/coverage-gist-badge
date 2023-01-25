@@ -28,16 +28,22 @@ const main = async () => {
     auth: core.getInput('auth'),
   });
 
+  console.log(core.getInput('auth'));
+
   //   const response = await octokit.gists.update({
   //     gist_id: core.getInput('gistID'),
   //     description: 'An updated gist description',
   //     request,
   //   });
 
-  await octokit.request('PATCH /gists/{gist_id}', {
+  //   await octokit.request('PATCH /gists/{gist_id}', {
+  //     gist_id: core.getInput('gistID'),
+  //     description: 'An updated gist description',
+  //     request,
+  //   });
+
+  await octokit.request('GET /gists/{gist_id}', {
     gist_id: core.getInput('gistID'),
-    description: 'An updated gist description',
-    request,
   });
 
   //   const { files } = response.data;
