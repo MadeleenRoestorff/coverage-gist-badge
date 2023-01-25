@@ -4,7 +4,7 @@ const axios = require('axios');
 const config = {
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `token ${core.getInput('auth')}`,
+    Authorization: `Bearer ${core.getInput('auth')}`,
   },
 };
 
