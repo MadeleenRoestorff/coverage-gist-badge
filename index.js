@@ -48,7 +48,7 @@ const main = async () => {
 
   const { files } = response.data;
 
-  console.log(response);
+  console.log(response.data);
   console.log('help');
 
   //   core.setOutput('content', files[filename].content);
