@@ -1,7 +1,7 @@
 name: 'Gist Write Action'
 description: 'The action to write content to a gist'
 inputs:
-  GITHUB_TOKEN:
+  auth:
     description: 'Your secret with the gist scope'
     required: true
   gistID:

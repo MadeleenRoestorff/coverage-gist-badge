@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const { Octokit } = require('@octokit/action');
+const { Octokit } = require('@octokit/core');
 
 const main = async () => {
   const content = {
@@ -25,20 +25,27 @@ const main = async () => {
   });
 
   const octokit = new Octokit({
-    auth: core.getInput('GITHUB_TOKEN'),
+    auth: core.getInput('auth'),
   });
 
-  const response = await octokit.gists.update({
+  //   const response = await octokit.gists.update({
+  //     gist_id: core.getInput('gistID'),
+  //     description: 'An updated gist description',
+  //     request,
+  //   });
+
+  await octokit.request('PATCH /gists/{gist_id}', {
     gist_id: core.getInput('gistID'),
     description: 'An updated gist description',
     request,
   });
 
-  const { files } = response.data;
+  //   const { files } = response.data;
 
-  console.log(files[filename]);
+  //   console.log(files[filename]);
+  console.log('help');
 
-  core.setOutput('content', files[filename].content);
+  //   core.setOutput('content', files[filename].content);
 };
 
 main().catch((error) => {
