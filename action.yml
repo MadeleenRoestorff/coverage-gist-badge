@@ -1,6 +1,9 @@
 name: 'Gist Write Action'
 description: 'The action to write content to a gist'
 inputs:
+  auth:
+    description: 'Your secret with the gist scope'
+    required: true
   gistID:
     description: 'Gist ID'
     required: true
@@ -15,6 +18,9 @@ inputs:
     required: true
   color:
     description: 'The right color of the badge'
+    required: false
+  namedLogo:
+    description: 'A logo name from simpleicons.org'
     required: false
 runs:
   using: 'node16'
