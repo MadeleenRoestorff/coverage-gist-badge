@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-// import core from "@actions/core";
 const core = require('@actions/core');
 // const axios = require("axios");
-// import axios from "axios";
 
 const config = {
   headers: {
