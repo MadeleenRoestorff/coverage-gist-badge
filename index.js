@@ -42,13 +42,13 @@ const main = async () => {
   //     request,
   //   });
 
-  await octokit.request('GET /gists/{gist_id}', {
+  const response = await octokit.request('GET /gists/{gist_id}', {
     gist_id: core.getInput('gistID'),
   });
 
-  //   const { files } = response.data;
+  const { files } = response.data;
 
-  //   console.log(files[filename]);
+  console.log(files[filename]);
   console.log('help');
 
   //   core.setOutput('content', files[filename].content);
