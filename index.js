@@ -2,16 +2,6 @@ const core = require('@actions/core');
 const { Octokit } = require('@octokit/action');
 
 const main = async () => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${core.getInput('auth')}`,
-      'User-Agent': 'MadeleenRoestorff',
-    },
-  };
-
-  console.log(config);
-
   const content = {
     schemaVersion: 1,
     label: core.getInput('label'),
@@ -35,7 +25,7 @@ const main = async () => {
   });
 
   const octokit = new Octokit({
-    auth: 'YOUR-TOKEN',
+    auth: core.getInput('auth'),
   });
 
   const response = await octokit.gists.update({
