@@ -11,36 +11,43 @@ const main = async () => {
   const color = core.getInput('color');
   const filename = core.getInput('filename');
   const namedLogo = core.getInput('namedLogo');
+  const percantage = Number(core.getInput('message').replace('%', ''));
+
+  if (color === '') {
+    switch (percantage) {
+      case percantage >= 90:
+        content.color = 'brightgreen';
+        break;
+      case percantage >= 80:
+        content.color = 'green';
+        break;
+      case percantage >= 70:
+        content.color = 'yellowgreen';
+        break;
+      case percantage >= 60:
+        content.color = 'yellow';
+        break;
+      case percantage >= 50:
+        content.color = 'orange';
+        break;
+      case percantage < 50:
+        content.color = 'red';
+        break;
+      default:
+        content.color = 'green';
+        break;
+    }
+  } else {
+    content.color = color;
+  }
 
   if (namedLogo != '') {
     content.namedLogo = namedLogo;
   }
 
-  if (color != '') {
-    content.color = color;
-  }
-
-  //   const request = JSON.stringify({
-  //     files: { [filename]: { content: JSON.stringify(content) } },
-  //   });
-
   const octokit = new Octokit({
     auth: core.getInput('auth'),
   });
-
-  console.log(core.getInput('auth'));
-
-  //   const response = await octokit.gists.update({
-  //     gist_id: core.getInput('gistID'),
-  //     description: 'An updated gist description',
-  //     request,
-  //   });
-
-  //   await octokit.request('PATCH /gists/{gist_id}', {
-  //     gist_id: core.getInput('gistID'),
-  //     description: 'An updated gist description',
-  //     request,
-  //   });
 
   const response = await octokit.request('PATCH /gists/{gist_id}', {
     gist_id: core.getInput('gistID'),
@@ -52,12 +59,7 @@ const main = async () => {
     },
   });
 
-  //   const { files } = response.data;
-
   console.log(response.data);
-  console.log('help');
-
-  //   core.setOutput('content', files[filename].content);
 };
 
 main().catch((error) => {
