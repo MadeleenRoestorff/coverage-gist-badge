@@ -13,7 +13,9 @@ const main = async () => {
   const namedLogo = core.getInput('namedLogo');
   const percantage = Number(core.getInput('message').replace('%', ''));
 
-  if (color === '') {
+  console.log('percantage', percantage);
+
+  if (color == '') {
     switch (percantage) {
       case percantage >= 90:
         content.color = 'brightgreen';
