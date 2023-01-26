@@ -1,0 +1,15 @@
+node_modules/*
+!node_modules/@actions/*
+!node_modules/@octokit/*
+!node_modules/is-plain-object/*
+!node_modules/node-fetch/*
+!node_modules/universal-user-agent/*
+!node_modules/uuid/*
+!node_modules/tunnel/*
+!node_modules/deprecation/*
+!node_modules/once/*
+!node_modules/before-after-hook"/*
+!node_modules/tr46/*
+!node_modules/webidl-conversions/*
+!node_modules/whatwg-url/*
+!node_modules/wrappy/*
