@@ -1,4 +1,6 @@
 node_modules/*
+
+# Modules needed for @actions/core and @octokit/core
 !node_modules/@actions/*
 !node_modules/@octokit/*
 !node_modules/is-plain-object/*
