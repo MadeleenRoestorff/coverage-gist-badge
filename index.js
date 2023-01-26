@@ -36,7 +36,7 @@ const main = async () => {
         content.color = 'red';
         break;
       default:
-        content.color = 'green';
+        content.color = 'pink';
         break;
     }
   } else {
