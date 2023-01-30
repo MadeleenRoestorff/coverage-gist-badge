@@ -114,3 +114,9 @@ git commit -m "yolo!" --no-verify
 ## License
 
 The scripts and documentation in this project are released under the [MIT License](LICENSE)
+
+## Future Work
+
+scalability
+color gradient based on coverage percentage
+get request before patch to check if update is needed

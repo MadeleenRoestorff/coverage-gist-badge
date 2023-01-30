@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: "node",
-  collectCoverageFrom: ["./main.js", "./index.js"],
+  collectCoverageFrom: ["./lib.js", "./index.js"],
   coverageReporters: ["text-summary"],
   coverageThreshold: {
     global: {

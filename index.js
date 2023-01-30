@@ -1,2 +1,2 @@
-const { main } = require("./main");
-main();
+const { lib } = require("./lib");
+lib();

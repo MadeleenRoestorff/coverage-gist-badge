@@ -1,7 +1,7 @@
 const core = require("@actions/core");
 const { Octokit } = require("@octokit/core");
 
-exports.main = async () => {
+exports.lib = async () => {
   try {
     const content = {
       schemaVersion: 1,

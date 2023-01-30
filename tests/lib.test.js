@@ -1,4 +1,4 @@
-const { main } = require("../main");
+const { lib } = require("../lib");
 const { Octokit } = require("@octokit/core");
 
 jest.mock("@octokit/core");
@@ -20,7 +20,7 @@ describe("foo", () => {
 
   it("Test if process exit", async () => {
     process.env.INPUT_MESSAGE = "90%";
-    await expect(main()).rejects.toThrow();
+    await expect(lib()).rejects.toThrow();
     expect(mockExit).toHaveBeenCalledWith(-1);
   });
 
@@ -29,7 +29,7 @@ describe("foo", () => {
     process.env.INPUT_MESSAGE = "50%";
     process.env.INPUT_AUTH = "BUNNY";
     process.env.INPUT_COLOR = "pink";
-    await expect(main()).rejects.toThrow();
+    await expect(lib()).rejects.toThrow();
     expect(Octokit).toHaveBeenCalledTimes(1);
   });
 
@@ -53,7 +53,7 @@ describe("foo", () => {
         });
 
       Octokit.mockImplementation(() => ({ request }));
-      await expect(main()).resolves;
+      await expect(lib()).resolves;
       expect(Octokit).toHaveBeenCalledTimes(1);
     }
   );
