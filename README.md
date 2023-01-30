@@ -83,4 +83,7 @@ and add the badge to your README file
 - [readme so](https://readme.so/)
 
 If you want skip the husky validate (ESlint and prettier) hook use --no-verify
+
+```bash
 git commit -m "yolo!" --no-verify
+```
