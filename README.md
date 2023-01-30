@@ -4,7 +4,7 @@
 [![ESLinter Badges](https://img.shields.io/badge/Linter-ESlint-4B32C3?logo=ESLint)](https://eslint.org/docs/latest/rules/)
 [![Prettier Badges](https://img.shields.io/badge/Formater-Prettier-F7B93E?logo=Prettier)](https://prettier.io/docs/en/precommit.html)
 [![license](https://img.shields.io/badge/License-MIT-F0047F.svg)](LICENSE)
-![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/MadeleenRoestorff/coverage-gist-badge/validate-script-pull.yml)
+[![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/MadeleenRoestorff/coverage-gist-badge/validate-script-pull.yml)](https://github.com/MadeleenRoestorff/coverage-gist-badge/actions)
 
 Writes to your gist to update your coverage badge.
 
@@ -32,15 +32,15 @@ Make a note of the gist ID in the URL.
 
 ### 2. Secret Token
 
-Go to your main profile [settings](https://github.com/settings/apps) and generate a [token](https://github.com/settings/tokens) with access scope selected as gist.
+Go to your main profile [settings](https://github.com/settings/apps) and generate a [**token**](https://github.com/settings/tokens) with access scope selected as gist.
 
-Add a new repository [secret](https://github.com/MadeleenRoestorff/coverage-gist-badge/settings/secrets/actions/) on your repo setting.
+Go to your repo settings and click on new repository secret (`github.com/user/repo/settings/secrets/actions/`).
 
-Save the generated token as a new secret with GIST_SECTRET as the name.
+Save the generated **token** as a new secret with GIST_SECTRET as the name.
+
+The encrypted **token** will now be accessible in your repo actions/workflow files as `${{ secrets.GIST_SECRET }}`
 
 ### 3. Update your github workflow action file
-
-Use your gist ID as gistID
 
 ```YML
 name: Validate Script on pull request
@@ -83,13 +83,13 @@ jobs:
 | YML Statement                                         | Description                                                                                           |
 | :---------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
 | `uses: MadeleenRoestorff/coverage-gist-badge@main`    | Reference to this repo. _DO NOT CHANGE_                                                               |
-| `auth: ${{ secrets.GIST_SECRET }}`                    | Auth will point to the secret token created in step 2. _DO NOT CHANGE_                                |
-| `gistID: 123456789abc`                                | Your gist ID. **REQUIRED**                                                                            |
+| `auth: ${{ secrets.GIST_SECRET }}`                    | Auth will point to the secret **token** created in step 2. _DO NOT CHANGE_                            |
+| `gistID: 123456789abc`                                | Your gist ID created in step 1. **REQUIRED**                                                          |
 | `filename: my_custom_filename_${{ env.BRANCH }}.json` | Filename with extionsion. **REQUIRED**                                                                |
 | `label: Some Custom text`                             | Label with the text that appears on the left of the badge. **REQUIRED**                               |
 | `message: ${{ env.COVERAGE }}`                        | Message is the coverage percentage that appears on the right of the badge. _DO NOT CHANGE_            |
 | `namedLogo: jest`                                     | The namedLogo is optional. Please view [Simple Icons](https://simpleicons.org/) for more options.     |
-| `color: green`                                        | Color is optional.                                                                                    |
+| `color: green`                                        | The color is optional.                                                                                |
 | `run: echo "CUSTOMVARIABLE=hello" >> $GITHUB_ENV`     | Create environment variables in previous steps, use as `${{ env.CUSTOMVARIABLE }}` in following steps |
 
 Go to your now updated gist file click on the raw button and use the URL as an endpoint for your shieldIO
@@ -117,6 +117,6 @@ The scripts and documentation in this project are released under the [MIT Licens
 
 ## Future Work
 
-scalability
-color gradient based on coverage percentage
+scalability,
+color gradient based on coverage percentage,
 get request before patch to check if update is needed
