@@ -37,6 +37,10 @@
                 "checkForEach": true
             }
         ],
+        "arrow-body-style": [
+            "error",
+            "as-needed"
+        ],
         "no-await-in-loop": "error",
         "no-constant-binary-expression": "error",
         "no-constructor-return": "error",
@@ -110,7 +114,7 @@
         "grouped-accessor-pairs": "error",
         "id-denylist": [
             "error",
-            "data",
+            // "data",
             "err",
             "e",
             "cb",
@@ -129,22 +133,17 @@
             500
         ],
         "max-nested-callbacks": [
-            "error",
-            5
+            "error"
         ],
         "max-params": [
             "error",
             5
         ],
         "max-statements": [
-            "error",
-            19
+            "off"
         ],
         "new-cap": [
-            "error",
-            {
-                "capIsNewExceptionPattern": "^Router"
-            }
+            "error"
         ],
         "no-alert": "error",
         "no-array-constructor": "error",
@@ -160,9 +159,7 @@
             {
                 "allow": [
                     "warn",
-                    "error",
-                    // TODO remove log after testing
-                    "log"
+                    "error"
                 ]
             }
         ],
@@ -231,10 +228,7 @@
             }
         ],
         "no-unused-vars": [
-            "error",
-            {
-                "argsIgnorePattern": "^_"
-            }
+            "error"
         ],
         "no-useless-call": "error",
         "no-useless-computed-key": "error",
@@ -313,9 +307,12 @@
                 "after": false
             }
         ],
+        // "implicit-arrow-linebreak": [
+        //     "error",
+        //     "beside"
+        // ],
         "implicit-arrow-linebreak": [
-            "error",
-            "beside"
+            "off"
         ],
         "key-spacing": [
             "error",

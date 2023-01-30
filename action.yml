@@ -22,6 +22,9 @@ inputs:
   namedLogo:
     description: 'A logo name from simpleicons.org'
     required: false
+outputs:
+  content:
+    description: "updated gist content"
 runs:
   using: 'node16'
   main: 'index.js'
