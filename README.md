@@ -16,7 +16,7 @@ https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/MadeleenR
 
 ## Usage Steps
 
-### 1 Gist
+### 1. Gist
 
 Create a new [gist](gist.github.com) for your repo.
 
@@ -24,17 +24,17 @@ Create a new [gist](gist.github.com) for your repo.
 - Filename including extionsion
 - Create public gist
 
-Make a note of the gist ID in the URL
+Make a note of the gist ID in the URL.
 
-### 2 Secret Token
+### 2. Secret Token
 
 Go to your main profile [settings](https://github.com/settings/apps) and generate a [token](https://github.com/settings/tokens) with access scope selected as gist.
 
-Add a new repository [secret](https://github.com/MadeleenRoestorff/coverage-gist-badge/settings/secrets/actions/) on your repo setting
+Add a new repository [secret](https://github.com/MadeleenRoestorff/coverage-gist-badge/settings/secrets/actions/) on your repo setting.
 
 Save the generated token as a new secret with GIST_SECTRET as the name.
 
-### 3 Update your github workflow action file
+### 3. Update your github workflow action file
 
 Use your gist ID as gistID
 
@@ -71,7 +71,22 @@ jobs:
           label: Test Coverage
           message: ${{ env.COVERAGE }}
           namedLogo: jest
+          color: pink
 ```
+
+**WHERE**
+
+| YML Statement                                         | Description                                                                                         |
+| :---------------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
+| `uses: MadeleenRoestorff/coverage-gist-badge@main`    | Reference to this repo. _DO NOT CHANGE_                                                             |
+| `auth: ${{ secrets.GIST_SECRET }}`                    | Auth will point to the secret token created in step 2. _DO NOT CHANGE_                              |
+| `gistID: 123456789abc`                                | Your gist ID. **REQUIRED**                                                                          |
+| `filename: my_custom_filename_${{ env.BRANCH }}.json` | Filename with extionsion. **REQUIRED**                                                              |
+| `label: Some Custom text`                             | Label with the text that appears on the left of the badge. **REQUIRED**                             |
+| `message: ${{ env.COVERAGE }}`                        | Message is the coverage percentage that appears on the right of the badge. _DO NOT CHANGE_          |
+| `namedLogo: jest`                                     | The namedLogo is optional. Please view [Simple Icons](https://simpleicons.org/) for more options.   |
+| `color: green`                                        | Color is optional.                                                                                  |
+| `run: echo "CUSTOMVARIABLE=hello" >> $GITHUB_ENV`     | Create environment variables in previous steps, use as ${{ env.CUSTOMVARIABLE }} in following steps |
 
 Go to your now updated gist file click on the raw button and use the URL as an endpoint for your shieldIO
 and add the badge to your README file
