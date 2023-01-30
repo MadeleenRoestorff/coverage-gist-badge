@@ -36,7 +36,7 @@ jobs:
         uses: MadeleenRoestorff/coverage-gist-badge@main
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: e3835b95ac826635d78b5d047b92b16a
+          gistID: 37d283de48f9508f6aed66f51beff8db
           filename: coverage_gist_badge_${{ env.BRANCH }}.json
           label: Test Coverage
           message: ${{ env.COVERAGE }}
