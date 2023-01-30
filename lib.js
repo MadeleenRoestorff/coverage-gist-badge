@@ -35,7 +35,7 @@ exports.lib = async () => {
         content.color = "red";
         break;
       default:
-        content.color = "pink";
+        content.color = color;
         break;
     }
 
