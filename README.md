@@ -51,7 +51,6 @@ jobs:
         with:
           node-version: "16.x"
       - run: npm ci
-      - run: npm run validate
       - run: |
           SUMMARY="$(npm run test -- --coverage --coverageReporters='text-summary' | tail -2 | head -1)"
           TOKENS=($SUMMARY)
