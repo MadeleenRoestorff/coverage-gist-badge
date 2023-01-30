@@ -2,7 +2,7 @@ name: Validate Script on pull request
 run-name: ${{ github.actor }} is testing Gas
 on: [push, pull_request]
 jobs:
-  build:s
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
