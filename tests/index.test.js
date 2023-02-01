@@ -1,4 +1,4 @@
-const { lib } = require("../lib");
+const lib = require("../index");
 const { Octokit } = require("@octokit/core");
 
 jest.mock("@octokit/core");
