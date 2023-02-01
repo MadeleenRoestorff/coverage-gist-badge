@@ -1,4 +1,4 @@
-name: Validate Script on pull or push request
+name: Validate and Test Coverage Scripts on pull or push request
 run-name: ${{ github.actor }} is testing ${{ github.repository }}
 on: [push, pull_request]
 jobs:
@@ -27,7 +27,7 @@ jobs:
         uses: MadeleenRoestorff/coverage-gist-badge@main
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: 37d283de48f9508f6aed66f51beff8db
+          gistID: 37d283de48f9508f6aed66f51beff8d
           filename: coverage_gist_badge_${{ env.BRANCH }}.json
           label: Test Coverage
           message: ${{ env.COVERAGE }}

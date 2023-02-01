@@ -51,7 +51,7 @@ The encrypted **token** will now be accessible in your repository actions/workfl
 ### 3. Update your github workflow action file
 
 ```YML
-name: Validate Script on pull or push request
+name: Test Coverage Scripts on pull or push request
 on: [push, pull_request]
 jobs:
   build:
