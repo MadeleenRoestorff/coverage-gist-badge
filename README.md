@@ -6,7 +6,7 @@
 [![license](https://img.shields.io/badge/License-MIT-F0047F.svg)](LICENSE)
 [![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/MadeleenRoestorff/coverage-gist-badge/test-badge.yml)](https://github.com/MadeleenRoestorff/coverage-gist-badge/actions)
 
-The coverage-gist-badge repository simplifies updating your test coverage badge by writing directly to your Gist to refresh your JSON file.
+The coverage-gist-badge repository simplifies updating your test coverage badge by writing directly to your Gist to patch your JSON file.
 
 Your gist JSON file can be used as an endpoint for [shields io](https://shields.io/endpoint).
 
