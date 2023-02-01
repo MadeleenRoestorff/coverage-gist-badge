@@ -24,6 +24,7 @@ jobs:
           echo "BRANCH=$BRANCH_NAME" >> $GITHUB_ENV
       - if: ${{ env.COVERAGE && github.ref == 'refs/heads/main' }}
         name: Create the Badge
+        id: gist
         uses: MadeleenRoestorff/coverage-gist-badge@main
         with:
           auth: ${{ secrets.GIST_SECRET }}
@@ -32,4 +33,4 @@ jobs:
           label: Test Coverage
           message: ${{ env.COVERAGE }}
           namedLogo: jest
-      - run: echo ${{ steps.next.outputs.value }}
+      - run: echo ${{ steps.gist.outputs.content }}
