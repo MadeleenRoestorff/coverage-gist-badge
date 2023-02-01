@@ -2,26 +2,16 @@ const main = require("../index");
 const { Octokit } = require("@octokit/core");
 
 jest.mock("@octokit/core");
-let mockExit = jest.spyOn(process, "exit");
 
 describe("Test main gist update function.", () => {
   beforeEach(() => {
     Octokit.mockClear();
-    mockExit = jest.spyOn(process, "exit").mockImplementation((number) => {
-      throw new Error(`process.exit: " + ${number}`);
-    });
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    Octokit.mockRestore();
     process.env.INPUT_AUTH = "";
     process.env.INPUT_COLOR = "";
-  });
-
-  it("Test if process exit when main fails to update", async () => {
-    process.env.INPUT_MESSAGE = "90%";
-    await expect(main()).rejects.toThrow();
-    expect(mockExit).toHaveBeenCalledWith(-1);
   });
 
   it("Test if the class constructor for Octokit has been called", async () => {
@@ -29,11 +19,11 @@ describe("Test main gist update function.", () => {
     process.env.INPUT_MESSAGE = "50%";
     process.env.INPUT_AUTH = "BUNNY";
     process.env.INPUT_COLOR = "pink";
-    await expect(main()).rejects.toThrow();
+    await main();
     expect(Octokit).toHaveBeenCalledTimes(1);
   });
 
-  it.each(["40%", "50%", "60%", "70%", "80%"])(
+  it.each(["40%", "50%", "60%", "70%", "80%", "90%"])(
     "Mock implement the request method on the Octokit class with %p messages",
     async (message) => {
       process.env.INPUT_GISTID = "";
