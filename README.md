@@ -4,7 +4,7 @@
 [![ESLinter Badges](https://img.shields.io/badge/Linter-ESlint-4B32C3?logo=ESLint)](https://eslint.org/docs/latest/rules/)
 [![Prettier Badges](https://img.shields.io/badge/Formater-Prettier-F7B93E?logo=Prettier)](https://prettier.io/docs/en/precommit.html)
 [![license](https://img.shields.io/badge/License-MIT-F0047F.svg)](LICENSE)
-[![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/MadeleenRoestorff/coverage-gist-badge/validate-script-pull.yml)](https://github.com/MadeleenRoestorff/coverage-gist-badge/actions)
+[![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/MadeleenRoestorff/coverage-gist-badge/test-badge.yml)](https://github.com/MadeleenRoestorff/coverage-gist-badge/actions)
 
 Writes to your gist to update your coverage badge.
 
