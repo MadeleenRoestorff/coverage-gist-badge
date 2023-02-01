@@ -67,12 +67,13 @@ const main = async () => {
 
     const { files } = response.data;
     core.setOutput("content", files[filename].content);
+    console.log(files);
 
     // if any error occurs exit this process
   } catch (error) {
     console.error(error);
     core.setFailed(error.message);
-    // process.exit(-1);
+    process.exit(-1);
   }
 };
 
