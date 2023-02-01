@@ -4,21 +4,21 @@ const { Octokit } = require("@octokit/core");
 jest.mock("@octokit/core");
 let mockExit = jest.spyOn(process, "exit");
 
-describe("foo", () => {
+describe("Test main gist update function.", () => {
   beforeEach(() => {
-    // Clear all instances and calls to constructor and all methods:
     Octokit.mockClear();
     mockExit = jest.spyOn(process, "exit").mockImplementation((number) => {
       throw new Error(`process.exit: " + ${number}`);
     });
   });
+
   afterEach(() => {
     jest.restoreAllMocks();
     process.env.INPUT_AUTH = "";
     process.env.INPUT_COLOR = "";
   });
 
-  it("Test if process exit", async () => {
+  it("Test if process exit when main fails to update", async () => {
     process.env.INPUT_MESSAGE = "90%";
     await expect(main()).rejects.toThrow();
     expect(mockExit).toHaveBeenCalledWith(-1);

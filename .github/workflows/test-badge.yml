@@ -32,3 +32,5 @@ jobs:
           label: Test Coverage
           message: ${{ env.COVERAGE }}
           namedLogo: jest
+        name: show incremented value "${{ steps.next.outputs.value }}"
+        run: echo ${{ steps.next.outputs.value }}

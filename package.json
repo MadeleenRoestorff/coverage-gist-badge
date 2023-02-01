@@ -14,9 +14,10 @@
         "url": "git+https://github.com/MadeleenRoestorff/coverage-gist-badge.git"
     },
     "keywords": [
-        "gist"
+        "gist",
+        "test coverage badge"
     ],
-    "author": "",
+    "author": "MadeleenRoestorff",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/MadeleenRoestorff/coverage-gist-badge/issues"
