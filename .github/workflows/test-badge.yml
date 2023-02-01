@@ -23,13 +23,13 @@ jobs:
           echo $BRANCH_NAME
           echo "BRANCH=$BRANCH_NAME" >> $GITHUB_ENV
       - if: ${{ env.COVERAGE && github.ref == 'refs/heads/main' }}
-        - name: Create the Badge
-          uses: MadeleenRoestorff/coverage-gist-badge@main
-          with:
-            auth: ${{ secrets.GIST_SECRET }}
-            gistID: 37d283de48f9508f6aed66f51beff8db
-            filename: coverage_gist_badge_${{ env.BRANCH }}.json
-            label: Test Coverage
-            message: ${{ env.COVERAGE }}
-            namedLogo: jest
-        - run: echo ${{ steps.next.outputs.value }}
+        name: Create the Badge
+        uses: MadeleenRoestorff/coverage-gist-badge@main
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 37d283de48f9508f6aed66f51beff8db
+          filename: coverage_gist_badge_${{ env.BRANCH }}.json
+          label: Test Coverage
+          message: ${{ env.COVERAGE }}
+          namedLogo: jest
+      - run: echo ${{ steps.next.outputs.value }}
