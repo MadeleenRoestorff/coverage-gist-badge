@@ -6,23 +6,31 @@
 [![license](https://img.shields.io/badge/License-MIT-F0047F.svg)](LICENSE)
 [![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/MadeleenRoestorff/coverage-gist-badge/test-badge.yml)](https://github.com/MadeleenRoestorff/coverage-gist-badge/actions)
 
-Writes to your gist to update your coverage badge.
+The coverage-gist-badge repository simplifies updating your test coverage badge by writing directly to your Gist to refresh your JSON file.
 
-Your gist can be used as an endpoint for [shields io](https://shields.io/endpoint).
+Your gist JSON file can be used as an endpoint for [shields io](https://shields.io/endpoint).
 
 ```
 https://gist.githubusercontent.com/<user>/<gist-ID>/raw/test.json
 ```
 
 ```
+https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/<user>/<gist-ID>/raw/test.json
 https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/MadeleenRoestorff/e3835b95ac826635d78b5d047b92b16a/raw/coveragebadge1.json
 ```
+
+Main componets:
+
+- [Gist](gist.github.com)
+- [Shields io](https://shields.io/endpoint)
+- [Github Actions](https://docs.github.com/en/actions)
+- [Github Tokens](https://github.com/settings/tokens)
 
 ## Usage Steps
 
 ### 1. Gist
 
-Create a new [gist](gist.github.com) for your repo.
+Create a new [gist](gist.github.com) for your repository.
 
 - Gist description
 - Filename including extionsion
@@ -34,16 +42,16 @@ Make a note of the gist ID in the URL.
 
 Go to your main profile [settings](https://github.com/settings/apps) and generate a [**token**](https://github.com/settings/tokens) with access scope selected as gist.
 
-Go to your repo settings and click on new repository secret (`github.com/user/repo/settings/secrets/actions/`).
+Go to your repository settings and click on new repository secret (`github.com/user/repo/settings/secrets/actions/`).
 
 Save the generated **token** as a new secret with GIST_SECTRET as the name.
 
-The encrypted **token** will now be accessible in your repo actions/workflow files as `${{ secrets.GIST_SECRET }}`
+The encrypted **token** will now be accessible in your repository actions/workflow files as `${{ secrets.GIST_SECRET }}`
 
 ### 3. Update your github workflow action file
 
 ```YML
-name: Validate Script on pull request
+name: Validate Script on pull or push request
 on: [push, pull_request]
 jobs:
   build:
@@ -82,7 +90,7 @@ jobs:
 
 | YML Statement                                         | Description                                                                                           |
 | :---------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
-| `uses: MadeleenRoestorff/coverage-gist-badge@main`    | Reference to this repo. _DO NOT CHANGE_                                                               |
+| `uses: MadeleenRoestorff/coverage-gist-badge@main`    | Reference to this repository. _DO NOT CHANGE_                                                         |
 | `auth: ${{ secrets.GIST_SECRET }}`                    | Auth will point to the secret **token** created in step 2. _DO NOT CHANGE_                            |
 | `gistID: 123456789abc`                                | Your gist ID created in step 1. **REQUIRED**                                                          |
 | `filename: my_custom_filename_${{ env.BRANCH }}.json` | Filename with extionsion. **REQUIRED**                                                                |
@@ -92,8 +100,19 @@ jobs:
 | `color: green`                                        | The color is optional.                                                                                |
 | `run: echo "CUSTOMVARIABLE=hello" >> $GITHUB_ENV`     | Create environment variables in previous steps, use as `${{ env.CUSTOMVARIABLE }}` in following steps |
 
+### 4. Update your README file
+
 Go to your now updated gist file click on the raw button and use the URL as an endpoint for your shieldIO
 and add the badge to your README file
+
+```
+[Coverage Badges](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/user/123456789abc/raw/123456789abc/my_custom_filename_main.json)
+
+```
+
+### Notes
+
+If no color is specified, the coverage-gist-badge repository will automatically choose the badge color based on the percentage coverage.
 
 ## Tech Stack
 
@@ -117,6 +136,6 @@ The scripts and documentation in this project are released under the [MIT Licens
 
 ## Future Work
 
-scalability,
-color gradient based on coverage percentage,
+Scalability,
+linear color gradient based on coverage percentage,
 get request before patch to check if update is needed

@@ -1,5 +1,5 @@
-name: Validate Script on pull request
-run-name: ${{ github.actor }} is testing Gas
+name: Validate Script on pull or push request
+run-name: ${{ github.actor }} is testing ${{ github.repository }}
 on: [push, pull_request]
 jobs:
   build:

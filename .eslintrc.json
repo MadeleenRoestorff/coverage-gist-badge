@@ -75,14 +75,7 @@
                 "ignoreGlobals": true
             }
         ],
-        "class-methods-use-this": [
-            "error",
-            {
-                "exceptMethods": [
-                    "#insertIntoDB"
-                ]
-            }
-        ],
+        "class-methods-use-this": "error",
         "consistent-return": [
             "error",
             {
@@ -139,6 +132,10 @@
             "error",
             5
         ],
+        // "max-statements": [
+        //     "error",
+        //     10
+        // ],
         "max-statements": [
             "off"
         ],
@@ -227,9 +224,7 @@
                 "allowTernary": true
             }
         ],
-        "no-unused-vars": [
-            "error"
-        ],
+        "no-unused-vars": "error",
         "no-useless-call": "error",
         "no-useless-computed-key": "error",
         "no-useless-concat": "error",

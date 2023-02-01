@@ -1,8 +1,9 @@
 const core = require("@actions/core");
 const { Octokit } = require("@octokit/core");
 
-const lib = async () => {
+const main = async () => {
   try {
+    // Building out the content for the gist JSON file
     const content = {
       schemaVersion: 1,
       label: core.getInput("label"),
@@ -14,6 +15,7 @@ const lib = async () => {
     const namedLogo = core.getInput("namedLogo");
     const percantage = Number(content.message.replace("%", ""));
 
+    // If no color is specified, calculate color based on coverage percentage
     // If statement would have been 180% faster
     switch (color === "" ? true : "") {
       case percantage >= 90:
@@ -43,6 +45,7 @@ const lib = async () => {
       content.namedLogo = namedLogo;
     }
 
+    // Create Oktokit instance with authentication
     const octokit = new Octokit({
       auth: core.getInput("auth", { required: true }),
       log: {
@@ -51,6 +54,7 @@ const lib = async () => {
       }
     });
 
+    // Update gist
     const response = await octokit.request("PATCH /gists/{gistID}", {
       gistID: core.getInput("gistID"),
       description: "An updated gist description",
@@ -63,6 +67,8 @@ const lib = async () => {
 
     const { files } = response.data;
     core.setOutput("content", files[filename].content);
+
+    // if any error occurs exit this process
   } catch (error) {
     console.error(error.message);
     core.setFailed(error.message);
@@ -70,8 +76,8 @@ const lib = async () => {
   }
 };
 
-module.exports = lib;
+module.exports = main;
 
 if (process.env.NODE_ENV !== "test") {
-  lib();
+  main();
 }
