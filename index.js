@@ -67,12 +67,11 @@ const main = async () => {
 
     const { files } = response.data;
     core.setOutput("content", files[filename].content);
-    console.log(files);
 
-    // if any error occurs exit this process
+    // catch any errors and set core to fail to display error in action workflow build
   } catch (error) {
     console.error(error);
-    core.setFailed(error.message);
+    core.setFailed(error);
   }
 };
 

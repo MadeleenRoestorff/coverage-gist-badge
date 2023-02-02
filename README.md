@@ -78,7 +78,7 @@ jobs:
         uses: MadeleenRoestorff/coverage-gist-badge@main
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: 37d283de48f9508f6aed66f51beff8db
+          gistID: 123456789abc
           filename: coverage_gist_badge_${{ env.BRANCH }}.json
           label: Test Coverage
           message: ${{ env.COVERAGE }}
@@ -122,7 +122,6 @@ Node, JavaScript, Jest, ESLint, Prettier, Husky
 
 - [Dynamic Badges Action](https://github.com/Schneegans/dynamic-badges-action)
 - [Gist-Write v1](https://github.com/sergeysova/gist-read-action)
-- [readme so](https://readme.so/)
 
 If you want skip the husky validate (ESlint and prettier) hook use --no-verify
 
