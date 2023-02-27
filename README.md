@@ -1,6 +1,6 @@
 # coverage-gist-badge
 
-[![Coverage Badges](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/MadeleenRoestorff/37d283de48f9508f6aed66f51beff8db/raw/029c777fee5280f2e4e9c1b06ebf8dd13aea592b/coverage_gist_badge_heads_main.json)](https://jestjs.io/docs/mock-function-api)
+[![Coverage Badges](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/MadeleenRoestorff/37d283de48f9508f6aed66f51beff8db/raw/coverage_gist_badge_heads_main.json)](https://jestjs.io/docs/mock-function-api)
 [![ESLinter Badges](https://img.shields.io/badge/Linter-ESlint-4B32C3?logo=ESLint)](https://eslint.org/docs/latest/rules/)
 [![Prettier Badges](https://img.shields.io/badge/Formater-Prettier-F7B93E?logo=Prettier)](https://prettier.io/docs/en/precommit.html)
 [![license](https://img.shields.io/badge/License-MIT-F0047F.svg)](LICENSE)
@@ -102,11 +102,15 @@ jobs:
 
 ### 4. Update your README file
 
-Go to your now updated gist file click on the raw button and use the URL as an endpoint for your shieldIO
-and add the badge to your README file
+To access your updated gist file, click on the 'Raw' button, then use the URL as the endpoint for shield.io to add the badge to your README file.
 
 ```
-[Coverage Badges](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/user/123456789abc/raw/123456789abc/my_custom_filename_main.json)
+https://gist.githubusercontent.com/<user>/<gistID>/raw/<gistCommitID>/<file.json>
+
+// For the latest version, simply remove the <gistCommitID>
+https://gist.githubusercontent.com/<user>/<gistID>/raw/<file.json>
+
+[Coverage Badges](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/user/123456789abc/raw/my_custom_filename_main.json)
 
 ```
 
@@ -122,12 +126,6 @@ Node, JavaScript, Jest, ESLint, Prettier, Husky
 
 - [Dynamic Badges Action](https://github.com/Schneegans/dynamic-badges-action)
 - [Gist-Write v1](https://github.com/sergeysova/gist-read-action)
-
-If you want skip the husky validate (ESlint and prettier) hook use --no-verify
-
-```bash
-git commit -m "yolo!" --no-verify
-```
 
 ## License
 
